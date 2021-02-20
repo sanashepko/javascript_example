@@ -1,0 +1,197 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow-x is a handy way to turn off horizontal scrolling in case something is overflowing the browser width */
+  overflow-x: hidden;
+}
+
+/*---------Setting up our typography styles---------*/
+
+/* Header one */
+
+h1 {
+font-family: 'Varela Round', sans-serif;
+font-style: normal;
+font-weight: normal;
+/*below is an example of how you would define a responsive font size:*/
+font-size: 50px;
+line-height: 1.2em;
+margin-bottom: 0;
+word-break: none;
+hyphens: auto;
+}
+
+/* Header two */
+h2 {
+font-family: 'Varela Round', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 58px;
+margin:0;
+}
+
+/* Subhead */
+h5.subhead {
+font-family: 'Noto Serif JP', serif;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 25px;
+margin: .5em 0;
+}
+/* Body */
+p {
+font-family: 'Noto Serif JP', serif;
+font-style: normal;
+font-weight: normal;
+font-size: 1.4em;
+line-height: 1.5em;
+}
+
+/* White */
+.white {
+color: #FFFFFF;
+}
+
+/* Light-grey */
+.light-grey {
+color: #E1C2BE;
+}
+
+/*---------Defining our grid---------*/
+.gridcontainer {
+  display: grid;
+  margin: 0 auto;
+  justify-content: center;
+  grid-template-rows: auto;
+
+  /*you could set up your grids using the method below:*/
+  /* grid-template-columns: repeat(12, 1fr); */
+
+  /*but this method is great because it creates automatically responsive layouts:*/
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+
+/*you can read more about it here: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+}
+
+/*---------Defining our content columns---------*/
+
+.hero-image {
+  background-image: url("img/1.jpg");
+  grid-column: span 8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.right-panel {
+  grid-column: span 6;
+  background-color:#250500;
+}
+
+.hero-text {
+  padding:12% 8% 0;
+}
+
+/*---------Info text component---------*/
+
+.info-text {
+  margin-top:50px;
+}
+/* Although we're using CSS grid to define our page layout, we will use Flexbox in the container below
+to help us lay out this smaller component. Learn more about flexbox here: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+.boxes {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  /* The line below is shorthand for writing:
+  margin-top: 1.4em; margin-right: 0; margin-bottom: 1.4em; margin-left:0
+  You can see why the shorthand way is much cleaner!
+  Always keep in mind that in terms of padding and margins, it's always: top > right > bottom > left. just like a clock*/
+  margin: 1.4em 0;
+}
+
+.box {
+  width: 30%;
+  text-align:center;
+  margin-right: 1em;
+}
+
+
+hr.horizontal {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 1em 0;
+    padding: 0;
+    width: 100%;
+}
+
+.vertical-line {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  height:86px;
+}
+
+.anchor-link {
+  margin-top: 2em;
+    color: #250500;
+    padding: 10px 30px;
+    background: #E1C2BE;
+    border-radius: 40px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+
+.anchor-link:hover{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button-margin {
+  margin-top:74px;
+}
+/*---------Media queries---------*/
+
+@media (max-width:600px){
+/* This CSS is saying that when the site loads at a smaller screen, instead of showing the info-text component
+in a row, display it as a column. We're turning off Flexbox and now saying display: block*/
+.boxes {
+  display: block;
+}
+.vertical-line{
+display:none;
+}
+
+}
+
+/*Notice that this pixel size is exactly one below the rule below. This rule says that once we get to
+smaller screen sizes (at which point our response columns will flow into a vertical layout), make our image
+only 40 percent of the browser height*/
+@media (max-width:1083px){
+
+  .hero-image{
+    height:40vh;
+  }
+  .right-panel {
+    min-height:100vh;
+
+  }
+}
+/*this is a media query for our large screen sizes. It's a rule specifically for any size of browser above 1084px*/
+@media (min-width:1084px) {
+html {
+  font-size: 1vw;
+}
+.hero-image {
+    height: 100vh;
+}
+  }

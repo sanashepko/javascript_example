@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!---Setting up our grid container--->
+  <div class="gridcontainer">
+
+    <!---This hero-image class will be filled with an image using CSS background-image property.
+    Check the style.css file to see how this works--->
+    <div class="hero-image" id="getImage">
+    </div>
+
+
+
+    <!---Creating a class for the area with a dark background on the right. We'll define the background color in the CSS file.--->
+    <div class="right-panel">
+
+      <!---A container for all the text on top of the dark background--->
+      <div class="hero-text">
+        <!--This class defines all text that has it as white text-->
+        <h1 class="white">
+          Changing images using JavaScript</h1>
+
+          <p class="white">
+Just some examples of what we can do, building off of previous code examples.          </p>
+
+
+
+
+<!-- Ok this is the end of the info-text component. Phew!-->
+<div class="button-margin">
+<button onClick="imagefun()" class="anchor-link">Change image</button>
+</div>
+        </div>
+  </div>
+
+
+<!--Closing tag for the grid container-->
+  </div>
+
+  <!---If you're adding JavaScript into your HTML file, it's generally recommended to add it here, right before your closing </body> tag
+  The reason for this is that your browser reads the file from top to bottom. If you have JavaScript at the top, it will take longer to load your page--->
+<script>
+
+function imagefun() {
+            var Image_Id = document.getElementById('getImage');
+            if (Image_Id.style.backgroundImage.match("img/1.jpg")) {
+                Image_Id.style.backgroundImage = "img/2.jpg";
+                Image_Id.style.backgroundImage = "img/3.jpg";
+            }
+            else {
+                Image_Id.style.backgroundImage = "img/1.jpg";
+            }
+        }
+</script>
+
+<!--and finally we're done with the whole HTML file! Great job we made it!-->
+</body>
+</html>
