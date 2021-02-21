@@ -78,7 +78,7 @@ color: #E1C2BE;
 
 /*---------Defining our content columns---------*/
 
-.hero-image {
+#getImage {
   background-image: url("img/1.jpg");
   grid-column: span 8;
   background-size: cover;
@@ -178,12 +178,11 @@ smaller screen sizes (at which point our response columns will flow into a verti
 only 40 percent of the browser height*/
 @media (max-width:1083px){
 
-  .hero-image{
+  #getImage{
     height:40vh;
   }
   .right-panel {
     min-height:100vh;
-
   }
 }
 /*this is a media query for our large screen sizes. It's a rule specifically for any size of browser above 1084px*/
@@ -191,7 +190,19 @@ only 40 percent of the browser height*/
 html {
   font-size: 1vw;
 }
-.hero-image {
+#getImage {
     height: 100vh;
 }
+.right-panel {
+
+}
+  }
+
+  @media (max-width:1260px){
+    .right-panel {
+      grid-column: span 6;
+    }
+    #getImage {
+      grid-column:span 6;
+    }
   }
